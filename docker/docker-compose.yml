@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+
+    web: 
+        image: osoondo
+        restart: always
+        build:
+            context: ../app
+            dockerfile: ../docker/Dockerfile
