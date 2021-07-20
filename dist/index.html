@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>🐻⚓ OsoOndo.com</title>
+        <title>Oso ondo</title>
         <meta charset="utf8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="style.css">
@@ -24,31 +24,24 @@
     <body>
 
         <div class="centered-content">
-            <div class="emoji-table">
-                <div class="emoji-row">
-                    <div class="emoji-cell">
-                        <img src="assets/bear.svg" alt="">
-                    </div>
-                    <div class="emoji-cell is-anchor">
-                        <img src="assets/anchor.svg" alt="">
-                    </div>
-                </div>
-                <div class="emoji-row">
-                    <div class="emoji-cell">
-                        <img src="assets/tshirt.svg" alt="">
-                    </div>
-                    <div class="emoji-cell is-soon">
-                        <img src="assets/soon.svg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="message">
-                <p>Las camisetas de <span>Oso Ondo</span><br><b>están al caer</b>.</p>
-                <p>
-                    <a href="mailto:info@osoondo.com">info@osoondo.com</a>
-                </p>
-            </div>
+            <img class="bear-image" src="/bears/1.jpg" alt="">
         </div>
+
+        <script type="text/javascript">
+            const currentBear = parseInt(localStorage.getItem('current_bear') || '0');
+            const bears = [
+                ['1.jpg', 'https://twitter.com/VTTeddyBear/status/705423893549424640'],
+                ['2.jpg', 'https://twitter.com/VTTeddyBear/status/705423893549424640'],
+                ['3.jpg', 'https://twistedsifter.com/2014/01/the-shirk-report-volume-251/bearistotle-thinking-bear/'],
+                ['4.jpg', ''],
+                ['5.jpg', ''],
+                ['6.jpg', 'https://imgur.com/gallery/TIgk4'],
+                ['7.png', 'https://imgur.com/gallery/TIgk4'],
+            ]
+            const chosenBear = bears[currentBear];
+            document.querySelector('.bear-image').setAttribute('src', '/bears/' + chosenBear[0]);
+            localStorage.setItem('current_bear', (currentBear+1) % bears.length );
+        </script>
 
     </body>
 </html>
