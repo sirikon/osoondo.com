@@ -4,27 +4,16 @@
         <meta charset="utf8">
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="style.css">
-
-        <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-        <script>
-            (function(f, a, t, h, o, m){
-                a[h]=a[h]||function(){
-                    (a[h].q=a[h].q||[]).push(arguments)
-                };
-                o=f.createElement('script'),
-                m=f.getElementsByTagName('script')[0];
-                o.async=1; o.src=t; o.id='fathom-script';
-                m.parentNode.insertBefore(o,m)
-            })(document, window, '//fathom.srk.bz/tracker.js', 'fathom');
-            fathom('set', 'siteId', 'DCFHL');
-            fathom('trackPageview');
-        </script>
-        <!-- / Fathom -->
+        <style id="backup-image-style"></style>
     </head>
     <body>
+        <script type="text/javascript">
+            document.getElementById('backup-image-style').textContent = '.backup-image{display:none;}';
+        </script>
 
         <div class="centered-content">
-            <img class="bear-image" src="/bears/1.jpg" alt="">
+            <img id="bear-image" style="display: none;" class="bear-image" src="" alt="">
+            <img class="bear-image backup-image" src="/bears/1.jpg" alt="">
         </div>
 
         <script type="text/javascript">
@@ -39,7 +28,8 @@
                 ['7.png', 'https://imgur.com/gallery/TIgk4'],
             ]
             const chosenBear = bears[currentBear];
-            document.querySelector('.bear-image').setAttribute('src', '/bears/' + chosenBear[0]);
+            document.getElementById('bear-image').setAttribute('src', '/bears/' + chosenBear[0]);
+            document.getElementById('bear-image').setAttribute('style', '');
             localStorage.setItem('current_bear', (currentBear+1) % bears.length );
         </script>
 
